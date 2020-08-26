@@ -36,8 +36,9 @@ abstract class Vendedor {
 }
 
 // En los parámetros, es obligatorio poner el tipo
-abstract class VendedorFijo(val ciudadOrigen: Ciudad) : Vendedor() {
+ class VendedorFijo(val ciudadOrigen: Ciudad) : Vendedor() {
   override fun puedeTrabajarEn(ciudad: Ciudad) = ciudad == ciudadOrigen
+  override fun influyente():Boolean {return false}
 }
 
 // A este tipo de List no se le pueden agregar elementos una vez definida
