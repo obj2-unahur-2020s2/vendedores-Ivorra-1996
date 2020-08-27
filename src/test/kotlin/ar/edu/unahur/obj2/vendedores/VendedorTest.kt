@@ -11,19 +11,19 @@ class VendedorTest : DescribeSpec({
   val viajante = Viajante(listOf(misiones))
   val corresponsal = ComercioCorresponsal(listOf(sanIgnacio))
 
- // describe("Vendedor fijo") {
-    //val obera = Ciudad(misiones)
-    //val vendedorFijo = VendedorFijo(obera)
+  describe("Vendedor fijo") {
+    val obera = Ciudad(misiones)
+    val vendedorFijo = VendedorFijo(obera)
 
-    //describe("puedeTrabajarEn") {
-      //it("su ciudad de origen") {
-        //vendedorFijo.puedeTrabajarEn(obera).shouldBeTrue()
-      //}
-      //it("otra ciudad") {
-        //vendedorFijo.puedeTrabajarEn(sanIgnacio).shouldBeFalse()
-      //}
-    //}
-  //}
+    describe("puedeTrabajarEn") {
+      it("su ciudad de origen") {
+        vendedorFijo.puedeTrabajarEn(obera).shouldBeTrue()
+      }
+      it("otra ciudad") {
+        vendedorFijo.puedeTrabajarEn(sanIgnacio).shouldBeFalse()
+      }
+    }
+  }
 
   describe("Viajante") {
     val cordoba = Provincia(2000000)
@@ -102,9 +102,9 @@ class VendedorTest : DescribeSpec({
         centros.agregarVendedor(viajante)
         centros.agregarVendedor(corresponsal)
       }
-      it("vendedor_no_agregado") {
-       //centros.agregarVendedor(viajante)
-      }
+      shouldThrowAny {
+                centros.agregarVendedor(viajante)
+            }
        }
   }
 
